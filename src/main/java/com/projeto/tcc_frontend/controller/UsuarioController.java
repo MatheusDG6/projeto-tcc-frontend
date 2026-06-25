@@ -5,6 +5,8 @@
 package com.projeto.tcc_frontend.controller;
 
 import com.projeto.tcc_frontend.model.UsuarioBean;
+import com.projeto.tcc_frontend.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,11 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class UsuarioController {
-/* 
+    
+    @Autowired
+    private UsuarioService service;
+    
     @PostMapping("/cadastrar")
     public String mandarRegistro(@ModelAttribute UsuarioBean usuario ) {
-        restService.registrar(usuario);
+//        ser.cadastrar(usuario);
+        service.cadastrar(usuario);
         return "cadastrar";
     }
-*/
 }
