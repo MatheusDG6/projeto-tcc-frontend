@@ -8,6 +8,8 @@ import com.projeto.tcc_frontend.model.UsuarioBean;
 import com.projeto.tcc_frontend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -21,6 +23,12 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
     
+    @GetMapping("/cadastrar")
+    public String telaCadastro(Model model) {
+        model.addAttribute("usuario", new UsuarioBean());
+        return "cadastrar";
+    }
+
     @PostMapping("/cadastrar")
     public String mandarRegistro(@ModelAttribute UsuarioBean usuario ) {
 //        ser.cadastrar(usuario);
