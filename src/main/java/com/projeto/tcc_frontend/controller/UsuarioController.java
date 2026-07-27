@@ -33,6 +33,6 @@ public class UsuarioController {
     public String mandarRegistro(@ModelAttribute UsuarioBean usuario ) {
 //        ser.cadastrar(usuario);
         service.cadastrar(usuario);
-        return "cadastrar";
+        return "redirect:/cadastrar";
     }
 }
