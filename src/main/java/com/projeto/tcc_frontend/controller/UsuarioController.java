@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -35,4 +36,10 @@ public class UsuarioController {
         service.cadastrar(usuario);
         return "redirect:/cadastrar";
     }
+    /*
+    @PostMapping("/logar")
+    public String login(@RequestBody UsuarioRequestBean usuario) {
+        return service.login(usuario);
+    }
+    */
 }
