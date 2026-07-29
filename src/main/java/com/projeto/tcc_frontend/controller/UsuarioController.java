@@ -5,6 +5,7 @@
 package com.projeto.tcc_frontend.controller;
 
 import com.projeto.tcc_frontend.model.UsuarioBean;
+import com.projeto.tcc_frontend.model.UsuarioRequestBean;
 import com.projeto.tcc_frontend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,14 +33,19 @@ public class UsuarioController {
 
     @PostMapping("/cadastrar")
     public String mandarRegistro(@ModelAttribute UsuarioBean usuario ) {
-//        ser.cadastrar(usuario);
         service.cadastrar(usuario);
-        return "redirect:/cadastrar";
+        return "redirect:/login";
     }
-    /*
-    @PostMapping("/logar")
-    public String login(@RequestBody UsuarioRequestBean usuario) {
-        return service.login(usuario);
+    
+    @GetMapping("/login")
+    public String telaLogin(Model model) {
+        model.addAttribute("usuario", new UsuarioBean());
+        return "login";
     }
-    */
+    
+    @PostMapping("/login")
+    public String login(@RequestBody UsuarioBean usuario) {
+        UsuarioRequestBean user = new UsuarioRequestBean();
+        return service.login(user);
+    }
 }
