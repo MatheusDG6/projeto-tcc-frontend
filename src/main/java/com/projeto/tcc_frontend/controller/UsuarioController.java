@@ -4,9 +4,10 @@
  */
 package com.projeto.tcc_frontend.controller;
 
-import com.projeto.tcc_frontend.model.UsuarioBean;
+import com.projeto.tcc_frontend.model.UsuarioDTO;
 import com.projeto.tcc_frontend.model.UsuarioRequestBean;
 import com.projeto.tcc_frontend.service.UsuarioService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,26 +26,39 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
     
+    @GetMapping("/")
+    public String home(
+            HttpSession session
+    ) {
+        Object token = session.getAttribute("token");
+        
+        if(token == null) {
+            return "redirect:/login";
+        }
+        
+        return "index";
+    }
+    
     @GetMapping("/cadastrar")
     public String telaCadastro(Model model) {
-        model.addAttribute("usuario", new UsuarioBean());
+        model.addAttribute("usuario", new UsuarioDTO());
         return "cadastrar";
     }
 
     @PostMapping("/cadastrar")
-    public String mandarRegistro(@ModelAttribute UsuarioBean usuario ) {
+    public String mandarRegistro(@ModelAttribute UsuarioDTO usuario ) {
         service.cadastrar(usuario);
         return "redirect:/login";
     }
     
     @GetMapping("/login")
     public String telaLogin(Model model) {
-        model.addAttribute("usuario", new UsuarioBean());
+        model.addAttribute("usuario", new UsuarioDTO());
         return "login";
     }
     
     @PostMapping("/login")
-    public String login(@RequestBody UsuarioBean usuario) {
+    public String login(@RequestBody UsuarioDTO usuario) {
         UsuarioRequestBean user = new UsuarioRequestBean();
         return service.login(user);
     }

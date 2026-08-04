@@ -4,7 +4,7 @@
  */
 package com.projeto.tcc_frontend.service;
 
-import com.projeto.tcc_frontend.model.UsuarioBean;
+import com.projeto.tcc_frontend.model.UsuarioDTO;
 import com.projeto.tcc_frontend.model.UsuarioRequestBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,11 +29,11 @@ public class UsuarioService {
                 .build();
     }
          
-    public void cadastrar(UsuarioBean usuario) {
+    public void cadastrar(UsuarioDTO usuario) {
         String retorno = 
             client
                 .post()
-                .uri("/cadastrar")
+                .uri("/usuario/cadastrar")
                 .body(usuario)
                 .retrieve()
                 .body(String.class);
@@ -41,7 +41,7 @@ public class UsuarioService {
     
     public String login(UsuarioRequestBean usuarios){
         return client.post()
-                .uri("/autenticar/login")
+                .uri("/usuario/login")
                 .body(usuarios)
                 .retrieve()
                 .body(String.class);

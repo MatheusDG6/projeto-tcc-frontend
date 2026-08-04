@@ -43,6 +43,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <br/>
                 </div>
                 
+                <div class="form-floating">
+                    <select th:field="*{role}" class="form-select">
+                    <option value="CLIENTE">Cliente</option>
+                    <option value="PROFISSIONAL">Profissional</option>
+                    <option value="EMPREGADOR">Empregador</option>
+                    </select>
+                    <br/><br/>
+                </div>
+                
                 <div class="justify-content-center align-middle">
                     <button type="submit" class="btn btn-success w-100">Cadastrar</button>
                 </div>
