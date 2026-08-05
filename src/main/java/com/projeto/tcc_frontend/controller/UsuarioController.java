@@ -27,15 +27,7 @@ public class UsuarioController {
     private UsuarioService service;
     
     @GetMapping("/")
-    public String home(
-            HttpSession session
-    ) {
-        Object token = session.getAttribute("token");
-        
-        if(token == null) {
-            return "redirect:/login";
-        }
-        
+    public String home() {
         return "index";
     }
     
