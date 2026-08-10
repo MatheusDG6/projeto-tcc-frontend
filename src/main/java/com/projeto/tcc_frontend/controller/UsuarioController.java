@@ -50,8 +50,20 @@ public class UsuarioController {
     }
     
     @PostMapping("/login")
-    public String login(@RequestBody UsuarioDTO usuario) {
+    public String login(
+        @ModelAttribute UsuarioDTO usuario, HttpSession session) {
         UsuarioRequestBean user = new UsuarioRequestBean();
-        return service.login(user);
+        
+        user.setEmail(usuario.getEmail());
+        user.setSenha(usuario.getSenha());
+        
+        String token = service.login(user);
+        
+        if (token != null && !token.isBlank()) {
+            session.setAttribute("token", token);
+            return "redirect:/tela-profissoes";
+        }
+        
+        return "redirect:/login";
     }
 }
