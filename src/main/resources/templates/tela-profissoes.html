@@ -5,14 +5,298 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <title>Tela de Profissões</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <h1>Hub Inteligente de Serviços</h1>
+    <body class="bg-light">
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+                <aside class="col-md-3 col-lg-2 bg-white border-end p-4">
+                    <div class="mb-5">
+                        <h4 class="fw-bold text-primary">
+                            💼 Hub de Serviços
+                        </h4>
+                    </div>
+                    <nav class="nav flex-column gap-2">
+                        <a href="/tela-profissoes"
+                           class="nav-link active bg-primary text-white rounded-3 p-3 fw-semibold">
+                            🏠 &nbsp; Profissões
+                        </a>
 
-    
+                        <a href="#"
+                           class="nav-link text-dark p-3 rounded-3">
+                            🤝 &nbsp; Meus Matches
+                        </a>
 
+                        <a href="#"
+                           class="nav-link text-dark p-3 rounded-3">
+                            💬 &nbsp; Mensagens
+                        </a>
+
+                        <a href="#"
+                           class="nav-link text-dark p-3 rounded-3">
+                            👤 &nbsp; Perfil
+                        </a>
+
+                        <a href="#"
+                           class="nav-link text-dark p-3 rounded-3">
+                            ⚙️ &nbsp; Configurações
+                        </a>
+                    </nav>
+                    <div class="position-absolute bottom-0 mb-4">
+                        <a href="/"
+                           class="nav-link text-dark p-3">
+                            🚪 &nbsp; Sair
+                        </a>
+                    </div>
+                </aside>
+                <main class="col-md-9 col-lg-10 p-4 p-lg-5">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h1 class="fw-bold text-dark mb-1">
+                                Profissões
+                            </h1>
+
+                            <p class="text-secondary mb-0">
+                                Encontre o profissional ideal para o que você precisa.
+                            </p>
+
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="fs-4">
+                                🔔
+                            </span>
+
+                            <div class="text-end">
+                                <strong class="d-block">
+                                    João Silva
+                                </strong>
+
+                                <small class="text-secondary">
+                                    Profissional
+                                </small>
+
+                            </div>
+                            <span class="rounded-circle bg-secondary-subtle p-2">
+                                👤
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    🔎
+                                </span>
+
+                                <input
+                                    type="text"
+                                    class="form-control form-control-lg"
+                                    placeholder="Buscar por profissão, serviço ou cidade..."
+                                    >
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <select class="form-select form-select-lg">
+                                <option selected>
+                                    Todas as cidades
+                                </option>
+
+                                <option>
+                                    Londrina - PR
+                                </option>
+
+                                <option>
+                                    Cambé - PR
+                                </option>
+
+                                <option>
+                                    Ibiporã - PR
+                                </option>
+
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-primary btn-lg w-100">
+                                ⚙ Filtrar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card border-0 shadow-sm rounded-4 mb-3">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <h3 class="fw-bold mb-2">
+                                        Encanador
+                                    </h3>
+
+                                    <div class="mb-3">
+                                        <span class="text-warning fs-5">
+                                            ★
+                                        </span>
+
+                                        <strong>
+                                            4,8
+                                        </strong>
+
+                                        <span class="text-secondary">
+                                            (32 avaliações)
+                                        </span>
+                                    </div>
+
+                                    <p class="text-secondary mb-3">
+                                        Serviços de encanamento em geral,
+                                        instalações e reparos.
+                                    </p>
+
+                                    <p class="text-secondary mb-0">
+                                        📍 Londrina - PR
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 mt-4 mt-lg-0">
+                                    <div class="mb-3">
+                                        <span class="badge bg-success-subtle text-success px-3 py-2">
+                                            Disponível
+                                        </span>
+                                    </div>
+                                    <p class="text-secondary">
+                                        💳 Pagamento: PIX, Dinheiro
+                                    </p>
+
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary">
+                                            Ver perfil
+                                        </button>
+
+                                        <button class="btn btn-outline-primary">
+                                            🤝 Dar Match
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 shadow-sm rounded-4 mb-3">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <h3 class="fw-bold mb-2">
+                                        Eletricista
+                                    </h3>
+
+                                    <div class="mb-3">
+                                        <span class="text-warning fs-5">
+                                            ★
+                                        </span>
+
+                                        <strong>
+                                            5,0
+                                        </strong>
+
+                                        <span class="text-secondary">
+                                            (18 avaliações)
+                                        </span>
+                                    </div>
+                                    <p class="text-secondary mb-3">
+                                        Instalações elétricas,
+                                        manutenção e reparos.
+                                    </p>
+
+                                    <p class="text-secondary mb-0">
+                                        📍 Cambé - PR
+                                    </p>
+                                    
+                                </div>
+                                <div class="col-lg-4 mt-4 mt-lg-0">
+                                    <div class="mb-3">
+                                        <span class="badge bg-success-subtle text-success px-3 py-2">
+                                            Disponível
+                                        </span>
+                                    </div>
+
+                                    <p class="text-secondary">
+                                        💳 Pagamento: PIX, Cartão
+                                    </p>
+
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary">
+                                            Ver perfil
+                                        </button>
+
+                                        <button class="btn btn-outline-primary">
+                                            🤝 Dar Match
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 shadow-sm rounded-4 mb-4">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <h3 class="fw-bold mb-2">
+                                        Pintor
+                                    </h3>
+                                    <div class="mb-3">
+                                        <span class="text-warning fs-5">
+                                            ★
+                                        </span>
+
+                                        <strong>
+                                            4,7
+                                        </strong>
+
+                                        <span class="text-secondary">
+                                            (21 avaliações)
+                                        </span>
+
+                                    </div>
+                                    <p class="text-secondary mb-3">
+                                        Pinturas residenciais e comerciais,
+                                        internas e externas.
+                                    </p>
+
+                                    <p class="text-secondary mb-0">
+                                        📍 Londrina - PR
+                                    </p>
+
+                                </div>
+                                <div class="col-lg-4 mt-4 mt-lg-0">
+                                    <div class="mb-3">
+                                        <span class="badge bg-success-subtle text-success px-3 py-2">
+                                            Disponível
+                                        </span>
+                                    </div>
+                                    
+                                    <p class="text-secondary">
+                                        💳 Pagamento: PIX, Dinheiro, Cartão
+                                    </p>
+
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary">
+                                            Ver perfil
+                                        </button>
+
+                                        <button class="btn btn-outline-primary">
+                                            🤝 Dar Match
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="/cadastro-profissao"
+                           class="btn btn-primary btn-lg px-5">
+                            ＋ Cadastrar Profissão
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
     </body>
 </html>
