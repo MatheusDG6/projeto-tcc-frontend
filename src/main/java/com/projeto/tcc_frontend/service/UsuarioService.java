@@ -40,6 +40,8 @@ public class UsuarioService {
     }
     
     public String login(UsuarioRequestBean usuarios){
+        System.out.println(usuarios.getEmail());
+        
         return client.post()
                 .uri("/usuario/login")
                 .body(usuarios)
