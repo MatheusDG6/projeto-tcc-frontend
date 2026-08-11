@@ -4,9 +4,14 @@
  */
 package com.projeto.tcc_frontend.controller;
 
+import com.projeto.tcc_frontend.model.ProfissaoDTO;
+import com.projeto.tcc_frontend.service.ProfissaoService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -14,6 +19,9 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class ProfissaoController {
+    
+    @Autowired
+    private ProfissaoService service;
     
     @GetMapping("/tela-profissoes")
     public String telaProfissoes(HttpSession session) {
@@ -33,5 +41,18 @@ public class ProfissaoController {
         }
 
         return "cadastro-profissao";
+    }
+    
+    @PostMapping("/profissao/cadastrar")
+    public String cadastrarProfissao(@ModelAttribute ProfissaoDTO profissao,
+            HttpSession session) {
+
+        if (session.getAttribute("token") == null) {
+            return "redirect:/login";
+        }
+
+        service.cadastrarProfissao(profissao);
+
+        return "redirect:/tela-profissoes";
     }
 }

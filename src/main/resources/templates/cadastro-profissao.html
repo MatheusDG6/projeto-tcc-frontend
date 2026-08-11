@@ -11,6 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+
     <body class="bg-light">
 
         <div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
@@ -85,32 +86,80 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                             <div class="col-md-6 mb-3">
 
-                                <label for="telefone" class="form-label fw-semibold">
-                                    Telefone
+                                <label for="estado" class="form-label fw-semibold">
+                                    Estado
                                 </label>
 
-                                <input
-                                    type="tel"
-                                    class="form-control"
-                                    id="telefone"
-                                    name="telefone"
-                                    placeholder="(43) 99999-9999"
+                                <select
+                                    class="form-select"
+                                    id="estado"
+                                    name="estado"
                                     required>
+
+                                    <option value="" selected disabled>
+                                        Selecione o estado
+                                    </option>
+
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+
+                                </select>
 
                             </div>
 
                         </div>
 
+                        <div class="mb-3">
+
+                            <label for="telefone" class="form-label fw-semibold">
+                                Telefone
+                            </label>
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                id="telefone"
+                                name="telefone"
+                                placeholder="(43) 99999-9999"
+                                required>
+
+                        </div>
+
                         <div class="mb-4">
 
-                            <label for="formaPagamento" class="form-label fw-semibold">
+                            <label for="forma_pagamento" class="form-label fw-semibold">
                                 Forma de pagamento
                             </label>
 
                             <select
                                 class="form-select"
-                                id="formaPagamento"
-                                name="formaPagamento"
+                                id="forma_pagamento"
+                                name="forma_pagamento"
                                 required>
 
                                 <option value="" selected disabled>
@@ -118,13 +167,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 </option>
 
                                 <option value="PIX">PIX</option>
-
                                 <option value="DINHEIRO">Dinheiro</option>
-
                                 <option value="CARTAO">Cartão</option>
-
                                 <option value="TRANSFERENCIA">Transferência</option>
-
                                 <option value="A_COMBINAR">A combinar</option>
 
                             </select>
@@ -146,9 +191,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             </button>
 
                         </div>
+
                     </form>
+
                 </div>
+
             </div>
+
         </div>
+
     </body>
+
 </html>
