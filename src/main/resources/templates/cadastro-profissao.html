@@ -11,17 +11,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-
     <body class="bg-light">
-
         <div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
-
             <div class="card shadow-sm border-0 w-100" style="max-width: 650px;">
-
                 <div class="card-body p-4 p-md-5">
-
                     <div class="text-center mb-4">
-
                         <h1 class="fw-bold mb-2">
                             Cadastro de Profissão
                         </h1>
@@ -31,11 +25,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </p>
 
                     </div>
-
                     <form th:action="@{/profissao/cadastrar}" method="post">
-
                         <div class="mb-3">
-
                             <label for="profissao" class="form-label fw-semibold">
                                 Profissão
                             </label>
@@ -49,9 +40,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 required>
 
                         </div>
-
                         <div class="mb-3">
-
                             <label for="descricao" class="form-label fw-semibold">
                                 Descrição
                             </label>
@@ -65,11 +54,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 required></textarea>
 
                         </div>
-
                         <div class="row">
-
                             <div class="col-md-6 mb-3">
-
                                 <label for="cidade" class="form-label fw-semibold">
                                     Cidade
                                 </label>
@@ -83,9 +69,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     required>
 
                             </div>
-
                             <div class="col-md-6 mb-3">
-
                                 <label for="estado" class="form-label fw-semibold">
                                     Estado
                                 </label>
@@ -129,13 +113,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <option value="TO">TO</option>
 
                                 </select>
-
                             </div>
-
                         </div>
-
                         <div class="mb-3">
-
                             <label for="telefone" class="form-label fw-semibold">
                                 Telefone
                             </label>
@@ -149,9 +129,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 required>
 
                         </div>
-
                         <div class="mb-4">
-
                             <label for="forma_pagamento" class="form-label fw-semibold">
                                 Forma de pagamento
                             </label>
@@ -173,11 +151,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <option value="A_COMBINAR">A combinar</option>
 
                             </select>
-
                         </div>
-
                         <div class="d-flex justify-content-center gap-3">
-
                             <a
                                 href="/tela-profissoes"
                                 class="btn btn-outline-secondary px-4">
@@ -189,17 +164,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 class="btn btn-dark px-4">
                                 Cadastrar
                             </button>
-
                         </div>
-
                     </form>
-
                 </div>
-
             </div>
-
         </div>
-
     </body>
-
 </html>

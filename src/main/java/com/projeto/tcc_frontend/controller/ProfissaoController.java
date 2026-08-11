@@ -5,6 +5,7 @@
 package com.projeto.tcc_frontend.controller;
 
 import com.projeto.tcc_frontend.model.ProfissaoDTO;
+import com.projeto.tcc_frontend.model.UsuarioDTO;
 import com.projeto.tcc_frontend.service.ProfissaoService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,14 +45,17 @@ public class ProfissaoController {
     }
     
     @PostMapping("/profissao/cadastrar")
-    public String cadastrarProfissao(@ModelAttribute ProfissaoDTO profissao,
-            HttpSession session) {
+    public String cadastrarProfissao(@ModelAttribute ProfissaoDTO profissao, UsuarioDTO usuario, HttpSession session) {
 
         if (session.getAttribute("token") == null) {
             return "redirect:/login";
         }
+        
+        System.out.println("asda");
+        System.out.println(usuario.getId_usuario());
+        System.out.println(usuario.getNome());
 
-        service.cadastrarProfissao(profissao);
+        service.cadastrarProfissao(profissao, usuario);
 
         return "redirect:/tela-profissoes";
     }

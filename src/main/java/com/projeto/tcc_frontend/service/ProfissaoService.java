@@ -5,6 +5,7 @@
 package com.projeto.tcc_frontend.service;
 
 import com.projeto.tcc_frontend.model.ProfissaoDTO;
+import com.projeto.tcc_frontend.model.UsuarioDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -23,8 +24,8 @@ public class ProfissaoService {
                 .build();
     }
     
-    public void cadastrarProfissao(ProfissaoDTO profissao) {
-
+    public void cadastrarProfissao(ProfissaoDTO profissao, UsuarioDTO usuario) {
+        
     client
         .post()
         .uri("/profissional/cadastrar")
