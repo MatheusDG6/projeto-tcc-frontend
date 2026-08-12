@@ -7,6 +7,7 @@ package com.projeto.tcc_frontend.controller;
 import com.projeto.tcc_frontend.model.ProfissaoDTO;
 import com.projeto.tcc_frontend.model.UsuarioDTO;
 import com.projeto.tcc_frontend.service.ProfissaoService;
+import com.projeto.tcc_frontend.service.TokenService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class ProfissaoController {
     
     @Autowired
     private ProfissaoService service;
+    
+    @Autowired
+    private TokenService tokenService;
     
     @GetMapping("/tela-profissoes")
     public String telaProfissoes(HttpSession session) {
@@ -45,17 +49,25 @@ public class ProfissaoController {
     }
     
     @PostMapping("/profissao/cadastrar")
-    public String cadastrarProfissao(@ModelAttribute ProfissaoDTO profissao, UsuarioDTO usuario, HttpSession session) {
+    public String cadastrarProfissao(@ModelAttribute ProfissaoDTO profissao, HttpSession session) {
 
         if (session.getAttribute("token") == null) {
             return "redirect:/login";
         }
         
-        System.out.println("asda");
-        System.out.println(usuario.getId_usuario());
-        System.out.println(usuario.getNome());
+        String token = (String) session.getAttribute("token");
+        
+        System.out.println("===== TOKEN NA SESSION =====");
+        System.out.println("TOKEN: " + token);
+        System.out.println("============================");
+        
+        
+        UsuarioDTO usuario = tokenService.extrairClaim(token);
+        
+      
 
-        service.cadastrarProfissao(profissao, usuario);
+        profissao.setId_usuario(usuario.getId_usuario());
+        service.cadastrarProfissao(profissao);
 
         return "redirect:/tela-profissoes";
     }

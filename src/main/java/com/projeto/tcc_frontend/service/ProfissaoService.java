@@ -24,7 +24,7 @@ public class ProfissaoService {
                 .build();
     }
     
-    public void cadastrarProfissao(ProfissaoDTO profissao, UsuarioDTO usuario) {
+    public void cadastrarProfissao(ProfissaoDTO profissao) {
         
     client
         .post()

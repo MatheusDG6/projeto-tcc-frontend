@@ -35,11 +35,19 @@ public class TokenService {
                 .getPayload();
        
         UsuarioDTO user = new UsuarioDTO();
+        
         user.setId_usuario(claims.get("id_usuario", Integer.class));
         user.setNome(claims.get("nome", String.class));
         user.setEmail(claims.get("email", String.class));
         user.setRole(claims.get("role", String.class));
         
+        System.out.println("===== USUARIO EXTRAIDO DO TOKEN =====");
+        System.out.println("ID: " + user.getId_usuario());
+        System.out.println("Nome: " + user.getNome());
+        System.out.println("Email: " + user.getEmail());
+        System.out.println("Role: " + user.getRole());
+        System.out.println("====================================");
+
         return user;
     }
 }
