@@ -5,7 +5,7 @@
 package com.projeto.tcc_frontend.controller;
 
 import com.projeto.tcc_frontend.model.UsuarioDTO;
-import com.projeto.tcc_frontend.model.UsuarioRequestBean;
+import com.projeto.tcc_frontend.model.UserRequestDTO;
 import com.projeto.tcc_frontend.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +52,7 @@ public class UsuarioController {
     @PostMapping("/login")
     public String login(
         @ModelAttribute UsuarioDTO usuario, HttpSession session) {
-        UsuarioRequestBean user = new UsuarioRequestBean();
+        UserRequestDTO user = new UserRequestDTO();
         
         user.setEmail(usuario.getEmail());
         user.setSenha(usuario.getSenha());

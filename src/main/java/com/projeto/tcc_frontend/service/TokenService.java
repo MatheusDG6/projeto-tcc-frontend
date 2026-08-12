@@ -5,9 +5,13 @@
 package com.projeto.tcc_frontend.service;
 
 import com.projeto.tcc_frontend.model.UsuarioDTO;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import javax.crypto.SecretKey;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 /**
  *
  * @author Aluno
@@ -15,6 +19,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TokenService {
     
+    @Value("${api.security.token.secret}")
+    private String secret;
     
     public SecretKey getKeySign() {
         byte[] keyBytes = Decoders.BASE64.decode(this.secret);
@@ -29,7 +35,11 @@ public class TokenService {
                 .getPayload();
        
         UsuarioDTO user = new UsuarioDTO();
+        user.setId_usuario(claims.get("id_usuario", Integer.class));
+        user.setNome(claims.get("nome", String.class));
         user.setEmail(claims.get("email", String.class));
+        user.setRole(claims.get("role", String.class));
+        
         return user;
     }
 }

@@ -5,7 +5,7 @@
 package com.projeto.tcc_frontend.service;
 
 import com.projeto.tcc_frontend.model.UsuarioDTO;
-import com.projeto.tcc_frontend.model.UsuarioRequestBean;
+import com.projeto.tcc_frontend.model.UserRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
@@ -39,7 +39,7 @@ public class UsuarioService {
                 .body(String.class);
     }
     
-    public String login(UsuarioRequestBean usuarios){
+    public String login(UserRequestDTO usuarios){
         System.out.println(usuarios.getEmail());
         
         return client.post()
