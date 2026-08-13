@@ -69,8 +69,6 @@ public class ProfissaoController {
         
         UsuarioDTO usuario = tokenService.extrairClaim(token);
         
-      
-
         profissao.setId_usuario(usuario.getId_usuario());
         service.cadastrarProfissao(profissao);
 
