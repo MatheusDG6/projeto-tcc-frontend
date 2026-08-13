@@ -3,7 +3,7 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -125,48 +125,56 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             </button>
                         </div>
                     </div>
-                    <div class="card border-0 shadow-sm rounded-4 mb-3">
+                    <div th:each="profissao : ${profissoes}"
+                         class="card border-0 shadow-sm rounded-4 mb-3">
+
                         <div class="card-body p-4">
+
                             <div class="row align-items-center">
+
                                 <div class="col-lg-8">
-                                    <h3 class="fw-bold mb-2">
-                                        Encanador
+
+                                    <h3 class="fw-bold mb-2"
+                                        th:text="${profissao.profissao}">
+                                        Nome da profissão
                                     </h3>
 
-                                    <div class="mb-3">
-                                        <span class="text-warning fs-5">
-                                            ★
-                                        </span>
-
-                                        <strong>
-                                            4,8
-                                        </strong>
-
-                                        <span class="text-secondary">
-                                            (32 avaliações)
-                                        </span>
-                                    </div>
-
-                                    <p class="text-secondary mb-3">
-                                        Serviços de encanamento em geral,
-                                        instalações e reparos.
+                                    <p class="text-secondary mb-3"
+                                       th:text="${profissao.descricao}">
+                                        Descrição da profissão
                                     </p>
 
                                     <p class="text-secondary mb-0">
-                                        📍 Londrina - PR
-                                    </p>
-                                </div>
-                                <div class="col-lg-4 mt-4 mt-lg-0">
-                                    <div class="mb-3">
-                                        <span class="badge bg-success-subtle text-success px-3 py-2">
-                                            Disponível
+                                        📍
+                                        <span th:text="${profissao.cidade}">
+                                            Londrina
                                         </span>
-                                    </div>
+                                        -
+                                        <span th:text="${profissao.estado}">
+                                            PR
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                                <div class="col-lg-4 mt-4 mt-lg-0">
+
                                     <p class="text-secondary">
-                                        💳 Pagamento: PIX, Dinheiro
+                                        📞
+                                        <span th:text="${profissao.telefone}">
+                                            Telefone
+                                        </span>
+                                    </p>
+
+                                    <p class="text-secondary">
+                                        💳 Pagamento:
+                                        <span th:text="${profissao.forma_pagamento}">
+                                            PIX
+                                        </span>
                                     </p>
 
                                     <div class="d-grid gap-2">
+
                                         <button class="btn btn-primary">
                                             Ver perfil
                                         </button>
@@ -174,120 +182,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <button class="btn btn-outline-primary">
                                             🤝 Dar Match
                                         </button>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
-                    </div>
-                    <div class="card border-0 shadow-sm rounded-4 mb-3">
-                        <div class="card-body p-4">
-                            <div class="row align-items-center">
-                                <div class="col-lg-8">
-                                    <h3 class="fw-bold mb-2">
-                                        Eletricista
-                                    </h3>
 
-                                    <div class="mb-3">
-                                        <span class="text-warning fs-5">
-                                            ★
-                                        </span>
-
-                                        <strong>
-                                            5,0
-                                        </strong>
-
-                                        <span class="text-secondary">
-                                            (18 avaliações)
-                                        </span>
-                                    </div>
-                                    <p class="text-secondary mb-3">
-                                        Instalações elétricas,
-                                        manutenção e reparos.
-                                    </p>
-
-                                    <p class="text-secondary mb-0">
-                                        📍 Cambé - PR
-                                    </p>
-                                    
-                                </div>
-                                <div class="col-lg-4 mt-4 mt-lg-0">
-                                    <div class="mb-3">
-                                        <span class="badge bg-success-subtle text-success px-3 py-2">
-                                            Disponível
-                                        </span>
-                                    </div>
-
-                                    <p class="text-secondary">
-                                        💳 Pagamento: PIX, Cartão
-                                    </p>
-
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-primary">
-                                            Ver perfil
-                                        </button>
-
-                                        <button class="btn btn-outline-primary">
-                                            🤝 Dar Match
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0 shadow-sm rounded-4 mb-4">
-                        <div class="card-body p-4">
-                            <div class="row align-items-center">
-                                <div class="col-lg-8">
-                                    <h3 class="fw-bold mb-2">
-                                        Pintor
-                                    </h3>
-                                    <div class="mb-3">
-                                        <span class="text-warning fs-5">
-                                            ★
-                                        </span>
-
-                                        <strong>
-                                            4,7
-                                        </strong>
-
-                                        <span class="text-secondary">
-                                            (21 avaliações)
-                                        </span>
-
-                                    </div>
-                                    <p class="text-secondary mb-3">
-                                        Pinturas residenciais e comerciais,
-                                        internas e externas.
-                                    </p>
-
-                                    <p class="text-secondary mb-0">
-                                        📍 Londrina - PR
-                                    </p>
-
-                                </div>
-                                <div class="col-lg-4 mt-4 mt-lg-0">
-                                    <div class="mb-3">
-                                        <span class="badge bg-success-subtle text-success px-3 py-2">
-                                            Disponível
-                                        </span>
-                                    </div>
-                                    
-                                    <p class="text-secondary">
-                                        💳 Pagamento: PIX, Dinheiro, Cartão
-                                    </p>
-
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-primary">
-                                            Ver perfil
-                                        </button>
-
-                                        <button class="btn btn-outline-primary">
-                                            🤝 Dar Match
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="text-center mt-4">
                         <a href="/cadastro-profissao"

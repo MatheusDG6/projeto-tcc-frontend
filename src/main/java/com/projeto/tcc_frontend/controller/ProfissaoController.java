@@ -9,8 +9,10 @@ import com.projeto.tcc_frontend.model.UsuarioDTO;
 import com.projeto.tcc_frontend.service.ProfissaoService;
 import com.projeto.tcc_frontend.service.TokenService;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,11 +31,14 @@ public class ProfissaoController {
     private TokenService tokenService;
     
     @GetMapping("/tela-profissoes")
-    public String telaProfissoes(HttpSession session) {
+    public String telaProfissoes(HttpSession session, Model model) {
         
         if (session.getAttribute("token") == null) {
             return "redirect:/login";
         }
+        
+        List<ProfissaoDTO> profissoes = service.listarProfissoes();
+        model.addAttribute("profissoes", profissoes);
         
         return "tela-profissoes";
     }
