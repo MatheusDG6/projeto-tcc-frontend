@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -11,50 +7,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="height: 100vh; background-color: #dee2e6" class="d-flex justify-content-center align-items-center ">
-        <div class="card shadow p-5 mb-7 bg-body rounded container-sm" style="max-width: 500px">
-            <div class="container justify-content-center align-items-center col-5">
-                <h4>CADASTRAR</h4>
-                <br>
-            </div>
-            <form 
-                th:action="@{/cadastrar}" 
-                th:object="${usuario}" method="post"
-                >
+    <body class="d-flex justify-content-center align-items-center vh-100 bg-white">
+        <div class="card border-0 shadow-lg p-5 text-center my-auto" style="max-width: 450px; width: 100%; border-radius: 24px;">
+            <h2 class="fw-bold mb-4" style="color: #1a1e29;">Cadastrar</h2>
+            <form th:action="@{/cadastrar}" th:object="${usuario}" method="post">
                 
-                <div class="form-floating">
-                    <input type="text" th:field="*{nome}" class="form-control" id="nome" placeholder="name@example.com">
-                    <label for="nome">Nome</label>
-                    <label>Nome: </label>
-                    <br/>
+                <div class="mb-3">
+                    <input type="text" th:field="*{nome}" class="form-control form-control-lg border-0 py-3 px-3" id="nome" placeholder="Nome" style="background-color: #f1f3f5; font-size: 0.95rem; border-radius: 10px;" required>
                 </div>
                 
-                <div class="form-floating">
-                    <input type="email" th:field="*{email}" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email</label>
-                    <label>Email: </label>
-                    <br/>
+                <div class="mb-3">
+                    <input type="email" th:field="*{email}" class="form-control form-control-lg border-0 py-3 px-3" id="floatingInput" placeholder="E-mail" style="background-color: #f1f3f5; font-size: 0.95rem; border-radius: 10px;" required>
                 </div>
                 
-                <div class="form-floating">
-                    <input type="password" th:field="*{senha}" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Senha</label>
-                    <label>Senha: </label>
-                    <br/>
-                </div>  
+                <div class="mb-3">
+                    <input type="password" th:field="*{senha}" class="form-control form-control-lg border-0 py-3 px-3" id="floatingPassword" placeholder="Senha" style="background-color: #f1f3f5; font-size: 0.95rem; border-radius: 10px;" required>
+                </div>
                 
-                <div class="form-floating">
-                    <select th:field="*{role}" class="form-select">
-                    <option value="CLIENTE">Cliente</option>
-                    <option value="PROFISSIONAL">Profissional</option>
-                    <option value="EMPREGADOR">Empregador</option>
+                <div class="mb-4">
+                    <select th:field="*{role}" class="form-select form-select-lg border-0 py-3 px-3 text-secondary" style="background-color: #f1f3f5; font-size: 0.95rem; border-radius: 10px;" required>
+                        <option value="CLIENTE">Cliente</option>
+                        <option value="PROFISSIONAL">Profissional</option>
+                        <option value="EMPREGADOR">Empregador</option>
                     </select>
-                    <br/><br/>
                 </div>
                 
-                <div class="justify-content-center align-middle">
-                    <button type="submit" class="btn btn-success w-100">Cadastrar</button>
-                </div>
+                <button type="submit" class="btn btn-success fw-bold w-100 py-3" style="border-radius: 10px; letter-spacing: 1px;">
+                    CADASTRAR
+                </button>
+
             </form>
         </div>
     </body>
