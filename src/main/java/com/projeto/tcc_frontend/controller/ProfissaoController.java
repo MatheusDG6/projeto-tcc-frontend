@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -41,6 +42,35 @@ public class ProfissaoController {
         model.addAttribute("profissoes", profissoes);
         
         return "tela-profissoes";
+    }
+    
+    @GetMapping("/solicitar-match/{id}")
+    public String telaSolicitarMatch(
+            @PathVariable Integer id,
+            HttpSession session,
+            Model model) {
+
+        if (session.getAttribute("token") == null) {
+            return "redirect:/login";
+        }
+
+        List<ProfissaoDTO> profissoes = service.listarProfissoes();
+        ProfissaoDTO profissaoSelecionada = null;
+
+        for (ProfissaoDTO profissao : profissoes) {
+
+            if (profissao.getId_profissao().equals(id)) {
+                profissaoSelecionada = profissao;
+                break;
+            }
+        }
+
+        if (profissaoSelecionada == null) {
+            return "redirect:/tela-profissoes";
+        }
+
+        model.addAttribute("profissao", profissaoSelecionada);
+        return "solicitar-match";
     }
     
     @GetMapping("/cadastro-profissao")

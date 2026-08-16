@@ -26,9 +26,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                              &nbsp; Profissões
                         </a>
 
-                        <a href="#"
+                        <a href="/meus-matches"
                            class="nav-link text-dark p-3 rounded-3">
-                             &nbsp; Meus Matches
+                            &nbsp; Meus Matches
                         </a>
 
                         <a href="#"
@@ -172,9 +172,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             Ver perfil
                                         </button>
 
-                                        <button class="btn btn-outline-primary">
-                                             Match
-                                        </button>
+                                        <a th:href="@{/solicitar-match/{id}(id=${profissao.id_profissao})}"
+                                           class="btn btn-outline-primary">
+                                            Match
+                                        </a>
 
                                     </div>
                                 </div>
