@@ -60,6 +60,10 @@ public class UsuarioController {
         String token = service.login(user);
         
         if (token != null && !token.isBlank()) {
+            
+            System.out.println("===== TOKEN DO LOGIN =====");
+            System.out.println(token);
+            System.out.println("==========================");
             session.setAttribute("token", token);
             return "redirect:/tela-profissoes";
         }
