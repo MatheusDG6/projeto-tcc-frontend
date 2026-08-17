@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <title>Matches Aceitos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body class="bg-light">
+
+        <div class="container py-5">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <div>
+                    <h1 class="fw-bold text-dark mb-1">
+                        Matches Aceitos
+                    </h1>
+
+                    <p class="text-secondary mb-0">
+                        Entre em contato com os solicitantes dos seus serviços.
+                    </p>
+                </div>
+
+                <a href="/meus-matches"
+                   class="btn btn-outline-primary">
+                    Voltar para Meus Matches
+                </a>
+
+            </div>
+
+            <div th:if="${#lists.isEmpty(matches)}"
+                 class="alert alert-info">
+
+                Você ainda não possui Matches aceitos.
+
+            </div>
+
+            <div th:each="match : ${matches}"
+                 class="card border-0 shadow-sm rounded-4 mb-3">
+
+                <div class="card-body p-4">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-md-8">
+
+                            <h4 class="fw-bold mb-3">
+                                Match aceito
+                            </h4>
+
+                            <p class="mb-2">
+                                <strong>Nome:</strong>
+                                <span th:text="${match.nome_solicitante}">
+                                    Nome do solicitante
+                                </span>
+                            </p>
+
+                            <p class="mb-2">
+                                <strong>E-mail:</strong>
+                                <span th:text="${match.email_solicitante}">
+                                    email@exemplo.com
+                                </span>
+                            </p>
+
+                            <p class="text-secondary mb-0">
+                                <strong>Status:</strong>
+                                <span class="text-success"
+                                      th:text="${match.status}">
+                                    ACEITO
+                                </span>
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+
+                            <div class="alert alert-success mb-0">
+                                Match aceito!<br>
+                                Entre em contato com o solicitante
+                                por um meio externo.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

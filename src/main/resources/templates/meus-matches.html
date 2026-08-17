@@ -12,14 +12,9 @@
 </head>
 
 <body class="bg-light">
-
 <div class="container-fluid">
-
     <div class="row min-vh-100">
-
-        <!-- MENU LATERAL -->
         <aside class="col-md-3 col-lg-2 bg-white border-end p-4">
-
             <div class="mb-5">
 
                 <h4 class="fw-bold text-primary">
@@ -27,7 +22,6 @@
                 </h4>
 
             </div>
-
             <nav class="nav flex-column gap-2">
 
                 <a href="/tela-profissoes"
@@ -38,6 +32,11 @@
                 <a href="/meus-matches"
                    class="nav-link active bg-primary text-white rounded-3 p-3 fw-semibold">
                     Meus Matches
+                </a>
+                
+                <a href="/matches-aceitos"
+                   class="nav-link text-dark p-3 rounded-3">
+                    Matches Aceitos
                 </a>
 
                 <a href="#"
@@ -56,7 +55,6 @@
                 </a>
 
             </nav>
-
             <div class="position-absolute bottom-0 mb-4">
 
                 <a href="/"
@@ -65,11 +63,7 @@
                 </a>
 
             </div>
-
         </aside>
-
-
-        <!-- CONTEÚDO -->
         <main class="col-md-9 col-lg-10 p-4 p-lg-5">
 
             <div class="mb-4">
@@ -79,13 +73,10 @@
                 </h1>
 
                 <p class="text-secondary mb-0">
-                    Veja as solicitações de Match recebidas.
+                    Acompanhe suas solicitações e Matches realizados.
                 </p>
 
             </div>
-
-
-            <!-- LISTA DE MATCHES -->
 
             <div th:if="${#lists.isEmpty(matches)}"
                  class="card border-0 shadow-sm rounded-4">
@@ -93,49 +84,165 @@
                 <div class="card-body p-5 text-center">
 
                     <h4 class="fw-bold">
-                        Nenhuma solicitação encontrada
+                        Nenhum Match encontrado
                     </h4>
 
                     <p class="text-secondary mb-0">
-                        Você ainda não possui solicitações de Match pendentes.
+                        Você ainda não possui solicitações ou Matches realizados.
                     </p>
 
                 </div>
 
             </div>
 
-
             <div th:each="match : ${matches}"
+                 th:if="${match != null}"
                  class="card border-0 shadow-sm rounded-4 mb-3">
 
                 <div class="card-body p-4">
 
-                    <div class="row align-items-center">
+                    <div th:if="${match.status != null and match.status.equals('PENDENTE')}">
 
-                        <div class="col-lg-8">
+                        <div class="row align-items-center">
 
-                            <span class="badge bg-warning text-dark mb-2">
-                                PENDENTE
-                            </span>
+                            <div class="col-lg-8">
 
-                            <h4 class="fw-bold mb-2">
-                                Nova solicitação de Match
-                            </h4>
+                                <span class="badge bg-warning text-dark mb-2">
+                                    PENDENTE
+                                </span>
 
-                            <p class="text-secondary mb-2">
+                                <h4 class="fw-bold mb-2">
+                                    Nova solicitação de Match
+                                </h4>
 
-                                Profissão ID:
-                                <strong th:text="${match.id_profissao}">
-                                    6
-                                </strong>
+
+                                <p class="text-secondary mb-2">
+
+                                    Solicitante:
+
+                                    <strong th:text="${match.nome_solicitante}">
+                                        Nome do solicitante
+                                    </strong>
+
+                                </p>
+
+
+                                <p class="text-secondary mb-2">
+
+                                    E-mail:
+
+                                    <strong th:text="${match.email_solicitante}">
+                                        email@exemplo.com
+                                    </strong>
+
+                                </p>
+
+
+                                <p class="text-secondary mb-2">
+
+                                    Profissão ID:
+
+                                    <strong th:text="${match.id_profissao}">
+                                        6
+                                    </strong>
+
+                                </p>
+
+
+                                <p class="text-secondary mb-0">
+
+                                    Data da solicitação:
+
+                                    <span th:text="${#temporals.format(match.data_match, 'dd/MM/yyyy HH:mm')}">
+                                        16/08/2026 18:27
+                                    </span>
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+
+                                <div class="d-grid gap-2">
+
+                                    <form th:action="@{/match/aceitar}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="id_match"
+                                               th:value="${match.id_match}">
+
+                                        <button type="submit"
+                                                class="btn btn-success w-100">
+
+                                            Aceitar Match
+
+                                        </button>
+
+                                    </form>
+
+
+                                    <form th:action="@{/match/recusar}"
+                                          method="post">
+
+                                        <input type="hidden"
+                                               name="id_match"
+                                               th:value="${match.id_match}">
+
+                                        <button type="submit"
+                                                class="btn btn-outline-danger w-100">
+
+                                            Recusar Match
+
+                                        </button>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div th:if="${match.status != null and match.status.equals('ACEITO') and match.nome_solicitante != null}">
+
+                        <span class="badge bg-success mb-3">
+                            MATCH ACEITO
+                        </span>
+
+
+                        <h4 class="fw-bold mb-2">
+                            Match realizado com sucesso!
+                        </h4>
+
+
+                        <p class="text-secondary mb-3">
+                            Você aceitou esta solicitação de Match.
+                        </p>
+
+
+                        <div class="bg-light rounded-3 p-3">
+
+                            <p class="mb-2">
+
+                                <strong>Solicitante:</strong>
+
+                                <span th:text="${match.nome_solicitante}">
+                                    Nome do solicitante
+                                </span>
 
                             </p>
 
-                            <p class="text-secondary mb-0">
 
-                                Data da solicitação:
-                                <span th:text="${#temporals.format(match.data_match, 'dd/MM/yyyy HH:mm')}">
-                                    16/08/2026 18:27
+                            <p class="mb-0">
+
+                                <strong>E-mail:</strong>
+
+                                <span th:text="${match.email_solicitante}">
+                                    email@exemplo.com
                                 </span>
 
                             </p>
@@ -143,46 +250,64 @@
                         </div>
 
 
-                        <div class="col-lg-4 mt-4 mt-lg-0">
+                        <p class="text-secondary mt-3 mb-0">
 
-                            <div class="d-grid gap-2">
+                            Entre em contato com o solicitante
+                            utilizando o e-mail informado.
 
-                                <form th:action="@{/match/aceitar}"
-                                      method="post">
+                        </p>
 
-                                    <input type="hidden"
-                                           name="id_match"
-                                           th:value="${match.id_match}">
+                    </div>
 
-                                    <button type="submit"
-                                            class="btn btn-success w-100">
+                    <div th:if="${match.status != null and match.status.equals('ACEITO') and match.nome_usuario != null}">
 
-                                        Aceitar Match
-
-                                    </button>
-
-                                </form>
+                        <span class="badge bg-success mb-3">
+                            MATCH ACEITO
+                        </span>
 
 
-                                <form th:action="@{/match/recusar}"
-                                      method="post">
+                        <h4 class="fw-bold mb-2">
+                            Match realizado com sucesso!
+                        </h4>
 
-                                    <input type="hidden"
-                                           name="id_match"
-                                           th:value="${match.id_match}">
 
-                                    <button type="submit"
-                                            class="btn btn-outline-danger w-100">
+                        <p class="text-secondary mb-3">
+                            O profissional aceitou sua solicitação.
+                        </p>
 
-                                        Recusar Match
 
-                                    </button>
+                        <div class="bg-light rounded-3 p-3">
 
-                                </form>
+                            <p class="mb-2">
 
-                            </div>
+                                <strong>Profissional:</strong>
+
+                                <span th:text="${match.nome_usuario}">
+                                    Nome do profissional
+                                </span>
+
+                            </p>
+
+
+                            <p class="mb-0">
+
+                                <strong>E-mail:</strong>
+
+                                <span th:text="${match.email_usuario}">
+                                    email@exemplo.com
+                                </span>
+
+                            </p>
 
                         </div>
+
+
+                        <p class="text-secondary mt-3 mb-0">
+
+                            Entre em contato com o profissional
+                            utilizando o e-mail informado.
+
+                        </p>
 
                     </div>
 
@@ -191,11 +316,7 @@
             </div>
 
         </main>
-
     </div>
-
 </div>
-
 </body>
-
 </html>

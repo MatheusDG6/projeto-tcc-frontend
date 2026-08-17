@@ -43,7 +43,7 @@ public class MatchController {
 
         return "redirect:/tela-profissoes";
     }
-    
+ 
     @GetMapping("/meus-matches")
     public String meusMatches(
             HttpSession session,
@@ -55,12 +55,31 @@ public class MatchController {
 
         String token = (String) session.getAttribute("token");
 
-        List<MatchProfissionalDTO> matches =
-                service.listarSolicitacoes(token);
+        List<MatchProfissionalDTO> matches
+                = service.listarSolicitacoes(token);
 
         model.addAttribute("matches", matches);
 
         return "meus-matches";
+    }
+    
+    @GetMapping("/matches-aceitos")
+    public String matchesAceitos(
+            HttpSession session,
+            Model model) {
+
+        if (session.getAttribute("token") == null) {
+            return "redirect:/login";
+        }
+
+        String token = (String) session.getAttribute("token");
+
+        List<MatchProfissionalDTO> matches
+                = service.listarMatchesAceitos(token);
+
+        model.addAttribute("matches", matches);
+
+        return "matches-aceitos";
     }
 
     @PostMapping("/match/aceitar")
