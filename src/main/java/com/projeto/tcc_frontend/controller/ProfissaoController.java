@@ -99,6 +99,19 @@ public class ProfissaoController {
         
         UsuarioDTO usuario = tokenService.extrairClaim(token);
         
+        System.out.println("===== USUARIO DA PROFISSAO =====");
+
+        if (usuario != null) {
+            System.out.println("ID USUARIO: " + usuario.getId_usuario());
+            System.out.println("NOME: " + usuario.getNome());
+            System.out.println("EMAIL: " + usuario.getEmail());
+            System.out.println("ROLE: " + usuario.getRole());
+        } else {
+            System.out.println("USUARIO: NULL");
+        }
+
+        System.out.println("================================");
+        
         profissao.setId_usuario(usuario.getId_usuario());
         service.cadastrarProfissao(profissao);
 

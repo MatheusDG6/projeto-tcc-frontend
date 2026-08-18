@@ -27,6 +27,12 @@ public class ProfissaoService {
     
     public void cadastrarProfissao(ProfissaoDTO profissao) {
         
+        System.out.println("===== ENVIANDO PROFISSAO PARA BACKEND =====");
+        System.out.println("ID USUARIO: " + profissao.getId_usuario());
+        System.out.println("PROFISSAO: " + profissao.getProfissao());
+        System.out.println("CIDADE: " + profissao.getCidade());
+        System.out.println("===========================================");
+        
     client
         .post()
         .uri("/profissional/cadastrar")
