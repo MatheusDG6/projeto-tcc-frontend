@@ -10,89 +10,126 @@
     </head>
 
     <body class="bg-light">
+    <body class="bg-light">
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+                <aside class="col-md-3 col-lg-2 bg-white border-end p-4">
+                    <div class="mb-5">
+                        <h4 class="fw-bold text-primary">
+                            ProMatch Serviços
+                        </h4>
+                    </div>
+                    <nav class="nav flex-column gap-2">
+                        <a href="/tela-profissoes"
+                           class="nav-link text-dark p-3 rounded-3">
+                            Profissões
+                        </a>
 
-        <div class="container py-5">
+                        <a href="/meus-matches"
+                           class="nav-link text-dark p-3 rounded-3">
+                            Meus Matches
+                        </a>
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
+                        <a href="/matches-aceitos"
+                           class="nav-link active bg-primary text-white rounded-3 p-3 fw-semibold">
+                            Matches Aceitos
+                        </a>
+                    </nav>
+                    <div class="position-absolute bottom-0 mb-4">
+                        <a href="/"
+                           class="nav-link text-dark p-3">
+                            &nbsp; Sair
+                        </a>
+                    </div>
+                </aside>
+                <main class="col-md-9 col-lg-10 p-4 p-lg-5">
+                    <div class="container py-5">
 
-                <div>
-                    <h1 class="fw-bold text-dark mb-1">
-                        Matches Aceitos
-                    </h1>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
 
-                    <p class="text-secondary mb-0">
-                        Entre em contato com os solicitantes dos seus serviços.
-                    </p>
-                </div>
+                            <div>
+                                <h1 class="fw-bold text-dark mb-1">
+                                    Matches Aceitos
+                                </h1>
 
-                <a href="/meus-matches"
-                   class="btn btn-outline-primary">
-                    Voltar para Meus Matches
-                </a>
+                                <p class="text-secondary mb-0">
+                                    Entre em contato com os solicitantes dos seus serviços.
+                                </p>
+                            </div>
 
-            </div>
-
-            <div th:if="${#lists.isEmpty(matches)}"
-                 class="alert alert-info">
-
-                Você ainda não possui Matches aceitos.
-
-            </div>
-
-            <div th:each="match : ${matches}"
-                 class="card border-0 shadow-sm rounded-4 mb-3">
-
-                <div class="card-body p-4">
-
-                    <div class="row align-items-center">
-
-                        <div class="col-md-8">
-
-                            <h4 class="fw-bold mb-3">
-                                Match aceito
-                            </h4>
-
-                            <p class="mb-2">
-                                <strong>Nome:</strong>
-                                <span th:text="${match.nome_solicitante}">
-                                    Nome do solicitante
-                                </span>
-                            </p>
-
-                            <p class="mb-2">
-                                <strong>E-mail:</strong>
-                                <span th:text="${match.email_solicitante}">
-                                    email@exemplo.com
-                                </span>
-                            </p>
-
-                            <p class="text-secondary mb-0">
-                                <strong>Status:</strong>
-                                <span class="text-success"
-                                      th:text="${match.status}">
-                                    ACEITO
-                                </span>
-                            </p>
+                            <a href="/meus-matches"
+                               class="btn btn-outline-primary">
+                                Voltar para Meus Matches
+                            </a>
 
                         </div>
 
-                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <div th:if="${#lists.isEmpty(matches)}"
+                             class="alert alert-info">
 
-                            <div class="alert alert-success mb-0">
-                                Match aceito!<br>
-                                Entre em contato com o solicitante
-                                por um meio externo.
+                            Você ainda não possui Matches aceitos.
+
+                        </div>
+
+                        <div th:each="match : ${matches}"
+                             class="card border-0 shadow-sm rounded-4 mb-3">
+
+                            <div class="card-body p-4">
+
+                                <div class="row align-items-center">
+
+                                    <div class="col-md-8">
+
+                                        <h4 class="fw-bold mb-3">
+                                            Match aceito
+                                        </h4>
+
+                                        <p class="mb-2">
+                                            <strong>Nome:</strong>
+                                            <span th:text="${match.nome_solicitante}">
+                                                Nome do solicitante
+                                            </span>
+                                        </p>
+
+                                        <p class="mb-2">
+                                            <strong>E-mail:</strong>
+                                            <span th:text="${match.email_solicitante}">
+                                                email@exemplo.com
+                                            </span>
+                                        </p>
+
+                                        <p class="text-secondary mb-0">
+                                            <strong>Status:</strong>
+                                            <span class="text-success"
+                                                  th:text="${match.status}">
+                                                ACEITO
+                                            </span>
+                                        </p>
+
+                                    </div>
+
+                                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+
+                                        <div class="alert alert-success mb-0">
+                                            Match aceito!<br>
+                                            Entre em contato com o solicitante
+                                            por um meio externo.
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
-
+                </main>
             </div>
-
         </div>
+
 
     </body>
 </html>
